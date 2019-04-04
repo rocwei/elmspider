@@ -8,11 +8,11 @@ import json
 from fake_useragent import UserAgent
 # coding:utf-8
 
-l_coordinate_longitude = 121.40422
-r_coordinate_longitude = 121.80781
+l_coordinate_longitude = 121.00422
+r_coordinate_longitude = 121.00781
 
-l_coordinate_latitude = 29.896064
-r_coordinate_latitude = 29.759549
+l_coordinate_latitude = 29.096064
+r_coordinate_latitude = 29.059549
 
 coordinate_list = []
 
@@ -280,7 +280,7 @@ async def get_shopinfo_byshopname(shopname,loop):
     quyer_sql = 'select * from t_elmbusiness where E_shopname = "{0}" '.format(shopname)
     res = 0
     pool = await aiomysql.create_pool(host='127.0.0.1', port=3306,
-                                      user='root', password='Rocwei19940106',
+                                      user='root', password='密码',
                                       db='spider_elm', loop=loop, charset='utf8', autocommit=True)
     async with pool.acquire() as conn:
         async with conn.cursor() as cur:
@@ -296,7 +296,7 @@ async def get_shopinfo_byshopname(shopname,loop):
 
 async def save_into_mysql(insert_sql, data, loop, typename):
     pool = await aiomysql.create_pool(host='127.0.0.1', port=3306,
-                                      user='root', password='Rocwei19940106',
+                                      user='root', password='密码',
                                       db='spider_elm', loop=loop, charset='utf8', autocommit=True)
     async with pool.acquire() as conn:
         async with conn.cursor() as cur:
